@@ -1,2 +1,5 @@
-const fs = require("fs");
-fs.writeFileSync("test.tx", "Hello node!")
+const common = require("./common.js")
+common.hello();
+
+import es from "./es.js";
+es.hello();
