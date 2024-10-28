@@ -1,0 +1,1 @@
+(()=>{"use strict";const l={hello(){console.log("Hello ecmascript")}},o=require("./common.js");l.hello(),o.hello()})();
