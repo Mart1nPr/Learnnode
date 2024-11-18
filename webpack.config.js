@@ -1,7 +1,7 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import loader from "sass-loader";
- 
+
 export default {
   entry: "./src/index.js",
   output: {
@@ -24,8 +24,8 @@ export default {
       {
         test: /\.scss$/i,
         use: [
-          "style-loader", 
-          "css-loader", 
+          "style-loader",
+          "css-loader",
           {
             loader: "sass-loader",
             options: {
@@ -36,11 +36,24 @@ export default {
           }
         ],
       },
+      {
+        test: /\.njk$/,
+        use: [
+          {
+            loader: 'simple-nunjucks-loader',
+            options: {},
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: './src/index.html'
-    })
-    ],
+      template: './src/index.njk'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'about.html',
+      template: './src/about.njk',
+    }),
+  ],
 };
