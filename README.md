@@ -1,2 +1,2 @@
-# ta23alearnnode
-webpack haldamine
+# Learnnode
+Tunni töö repository. Webpack haldamine.
