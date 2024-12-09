@@ -6,5 +6,4 @@ npm i (Laeb kõik vajalikud node modules.)
 npm run dev (Käivitab live server.)  
 Ctrl + C (Paneb kinni live server.)
 
-NODE_OPTIONS=--disablewarning=ExperimentalWarning --disable-warning-DecprecationWarning
 
