@@ -1,28 +1,11 @@
-import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-
-export default async () => {
-
-  let response = await fetch('https://rickandmortyapi.com/api/character');
-  let json = await response.json();
-  let characters = json.results;
-  let pages = [];
-  characters.forEach(character => {
-    let page = new HtmlWebpackPlugin({
-      template: './src/character.njk',
-      filename: "character_" + character.id + ".html",
-      templateParameters: {
-        character
-      },
-    });
-    pages.push(page);
-  });
-
-  return {
-    entry: "./src/index.js",
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+ 
+export default {
+    entry: './src/index.js',
     output: {
-      filename: "main.js",
-      path: path.resolve(import.meta.dirname, "dist"),
+      filename: 'main.js',
+      path: path.resolve(import.meta.dirname, 'dist'),
     },
     devServer: {
       static: {
@@ -52,30 +35,13 @@ export default async () => {
             }
           ],
         },
-        {
-          test: /\.njk$/,
-          use: [
-            {
-              loader: 'simple-nunjucks-loader',
-              options: {},
-            },
-          ],
-        },
       ],
     },
+ 
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.njk',
-        templateParameters: {
-          name: "Martin",
-          characters, // characters: characters
-        }
+        template: './src/index.html',
       }),
-      new HtmlWebpackPlugin({
-        filename: 'about.html',
-        template: './src/about.njk',
-      }),
-      ...pages
     ],
-  }
-};
+  };
+ 
