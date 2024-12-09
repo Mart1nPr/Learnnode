@@ -6,6 +6,6 @@ npm i (Laeb kõik vajalikud node modules.)
 npm run dev (Käivitab live server.)  
 Ctrl + C (Paneb kinni live server.)
 
-**Homework**
+**Homework** 
 Muuta character page nr 18.
 
