@@ -1,33 +1,13 @@
 <script setup>
-import { ref } from 'vue';
+import Tabs from './components/Tabs.vue';
+let titles = ['Item1', 'Item2', 'Item3', 'Item4'];
 
-
-let modalActive = ref(false);
-
-document.body.addEventListener('keydown', event => {
-    if(event.key === 'Escape'){
-        modalActive.value = false;
-    }
-});
 </script>
 
 <template>
-    <div class="container">
-        <section class="section">
-            <button class="button is-primary" @click="modalActive=true">Modal Activate</button>
-        </section>
-    </div>
-
-    <div class="modal" :class="{'is-active': modalActive}">
-        <div class="modal-background" @click="modalActive=false"></div>
-        <div class="modal-content">
-            <p class="image is-4by3">
-                <img src="https://bulma.io/assets/images/placeholders/1280x960.png" alt="">
-            </p>
-        </div>
-        <button class="modal-close is-large" @click="modalActive=false" aria-label="close"></button>
-    </div>
+    <Tabs :items="titles"></Tabs>
 
 </template>
 
-<style></style>
+<style>
+</style>
