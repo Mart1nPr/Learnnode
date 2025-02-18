@@ -1,16 +1,17 @@
 <script setup>
-import { RouterLink, useRoute, useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const router = useRouter();
-const route =useRoute();
+const route = useRoute();
 
-console.log(router.getRoutes(), route)
+console.log(router.getRoutes(), route);
+
 
 </script>
 <template>
     <div class="tabs is-centered">
         <ul>
-            <li v-for="(item,key) in $router.getRoutes()" :class="{'is-active': item.path === $route.path}">
+            <li v-for="(item,key) in $router.getRoutes()" :class="{'is-active': item.path === $route.path}" >
                 <RouterLink :to="item.path">{{ item.name }}</RouterLink>
             </li>
         </ul>
