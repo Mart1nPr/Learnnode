@@ -8,15 +8,17 @@ let input = ref('');
 let res = await axios.get('http://localhost:3000');
 messages.value = res.data;
 
-setInterval(async () => {
-    let date = messages.value[messages.value.lenght-1]?.date ?? null;
-    let res = await axios.get('http://localhost:3000', {
+function longpoll() {
+    let date = messages.value[messages.value.lenght - 1]?.date ?? null;
+    axios.get('http://localhost:3000/longpoll', {
         params: {
             date: new Date(date)
         }
+    }).then(res => {
+        messages.value.push(...res.data);
+        longpoll();
     });
-    messages.value.push(...res.data);
-}, 1000);
+}
 
 async function send() {
     let res = await axios.post('http://localhost:3000', {
