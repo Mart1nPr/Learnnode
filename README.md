@@ -1,11 +1,6 @@
-# Learnnode  
-Tunni töö veebilehe repository. Webpack haldamine.  
-  
-**Kuidas kasutada:**  
-npm i (Laeb kõik vajalikud node modules.)  
-npm run start (Käivitab live server.)  
-Ctrl + C (Paneb kinni live server.)
+## Learnnode
+Javascript, AJAX tunni projekt <br>
 
-**Homework** 
-Muuta character page nr 18.
+`NODE_OPTIONS=--disable-warning=ExperimentalWarning --disable-warning=DeprecationWarning` <br>
 
+Homework: muuta character page nr 18
